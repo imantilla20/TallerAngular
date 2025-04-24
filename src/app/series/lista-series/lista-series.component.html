@@ -1,40 +1,46 @@
-<div class="row">
-  <!-- Table of series -->
-  <div class="col-md-8">
-    <table class="table table-hover table-bordered">
-      <thead class="thead-light text-center">
-        <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Channel</th>
-          <th>Seasons</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let serie of series" (click)="showDetail(serie)" style="cursor: pointer">
-          <td class="text-center font-weight-bold">{{ serie.id }}</td>
-          <td class="text-primary">{{ serie.name }}</td>
-          <td>{{ serie.channel }}</td>
-          <td>{{ serie.seasons }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="container-fluid mt-4">
+  <div class="row">
+    <!-- Tabla que muestra la info inicial de las series -->
+    <div class="col-4">
+      <table class="table table-hover table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Channel</th>
+            <th>Seasons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let serie of series">
+            <td>{{ serie.id }}</td>
+            <td>
+              <a (click)="showDetail(serie)" style="cursor: pointer; color: rgb(73, 165, 230); text-decoration: underline;">
+                {{ serie.name }}
+              </a>
+            </td>
+            <td>{{ serie.channel }}</td>
+            <td>{{ serie.seasons }}</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Average -->
-    <div class="row ml-1">
-      <p class="col-auto mb-0"><strong>Seasons average:</strong></p>
-      <p class="col-auto mb-0"><strong>{{ averageSeasons | number:'1.1-1' }}</strong></p>
+      <!-- Promedio de temporadas -->
+      <div class="row ml-1">
+        <p class="col-auto mb-0"><strong>Seasons average:</strong></p>
+        <p class="col-auto mb-0"><strong>{{ averageSeasons }}</strong></p>
+      </div>
     </div>
-  </div>
 
-  <!-- Detail Card-->
-  <div class="col" *ngIf="visibilidad">
-    <div id="serie-card" class="card">
-      <img [src]="posterSerie" id="imagen-card" class="card-img-top" alt="Poster">
-      <div class="card-body">
-        <h5 class="card-title">{{ nameSerie }}</h5>
-        <p class="card-text">{{ descriptionSerie }}</p>
-        <a [href]="webpageSerie" id="url-card" target="_blank">{{ webpageSerie }}</a>
+    <!-- Detalle la carta -->
+    <div class="col" *ngIf="visibilidad">
+      <div id="serie-card" class="card" style="max-width: 250px;">
+        <img id="imagen-card" [src]="posterSerie" class="card-img-top" alt="Serie image" />
+        <div class="card-body">
+          <h5 class="card-title" id="nombre-card">{{ nameSerie }}</h5>
+          <p class="card-text" id="descripcion-card">{{ descriptionSerie }}</p>
+          <a [href]="webpageSerie" class="btn btn-primary" id="url-card" target="_blank">¡Ver ahora!</a>
+        </div>
       </div>
     </div>
   </div>
