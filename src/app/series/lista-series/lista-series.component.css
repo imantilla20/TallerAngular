@@ -1,0 +1,32 @@
+.table thead th {
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .table tbody td:first-child {
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .promedio {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  
+  #serie-card {
+    max-width: 250px;
+  }
+  
+  #imagen-card {
+    width: auto;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+  
+  #url-card {
+    font-size: 0.85rem;
+    word-break: break-word;
+    color: #007bff;
+    text-decoration: underline;
+  }
